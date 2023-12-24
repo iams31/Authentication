@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="/css/sign_up.css" />
+<form action="/users/create" method="post">
+  <div id="top">
+    <div>
+      <span id="heading">Sign Up</span>
+
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td>
+            <input
+              type="text"
+              name="firstname"
+              placeholder="Your First Name"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Your Last Name"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Adress"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Enter Your Phone Number"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>
+            <input
+              type="text"
+              name="dob"
+              placeholder="DD/MM/YYYY"
+              onfocus="this.type='date'"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Confirm Password <i class="fa fa-asterisk" aria-hidden="true"></i>
+          </td>
+          <td>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Enter Password"
+              required
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: center">
+      <a href="sign-in" style="font-size: 1.5rem; font-weight: 600"
+        ><button type="button">Sign In</button></a
+      >
+      <button type="submit">Create Account</button>
+    </div>
+  </div>
+</form>
