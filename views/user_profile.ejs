@@ -1,4 +1,12 @@
-        <link rel="stylesheet" href="/css/user_profile.css">
-        <h1>
-            Codeial / Profile Page
-        </h1>
+<link rel="stylesheet" href="/css/user_profile.css" />
+<div class="profile-container">
+  <h1>Profile</h1>
+  <div class="profile-info">
+    <p><strong>Name:</strong> <%= name %></p>
+    <p><strong>Phone:</strong> <%= phone %></p>
+    <p><strong>Email:</strong> <%= email %></p>
+  </div>
+  <form action="/users/sign-out" method="get">
+    <button type="submit">Sign Out</button>
+  </form>
+</div>
