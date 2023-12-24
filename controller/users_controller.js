@@ -32,16 +32,14 @@ module.exports.create = function (req, res) {
         if (!user) {
           return User.create(req.body); // Create user if not found
         } else {
-          return res.redirect("/users/sign-up"); // Return existing user
+          return Promise.resolve(user); // Return existing user
         }
       })
       .then((createdUser) => {
         res.redirect("/users/sign-in");
       })
       .catch((error) => {
-        console.log(
-          "Error during signup: User exist with the same email or phone try with another phone"
-        );
+        res.redirect("back");
         // Handle the error appropriately, e.g., send an error response
       });
   } catch (error) {
