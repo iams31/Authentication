@@ -1,4 +1,11 @@
-        <link rel="stylesheet" href="/css/user_profile.css">
-        <h1>
-            Codeial / Profile Page
-        </h1>
+<link rel="stylesheet" href="/css/user_profile.css" />
+<div class="profile-container">
+  <h1>User Profile</h1>
+  <div class="profile-info">
+    <p><strong>Name:</strong> <%= user.name %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Phone:</strong> <%= user.phone %></p>
+    <p><strong>Date of Birth:</strong><%= user.dob.toLocaleDateString() %></p>
+  </div>
+  <a href="/users/sign-out"><button type="buton">Log Out</button></a>
+</div>
