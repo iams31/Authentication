@@ -1,44 +1,42 @@
 #top {
   display: flex;
   flex-direction: column;
-  align-items: end;
-}
+  align-items: end; }
+
 div {
   display: flex;
   flex-direction: column;
   height: auto;
   width: 50rem;
   background-image: linear-gradient(15deg, white, pink);
-  align-items: center;
-}
+  align-items: center; }
+
 #heading {
   font-size: 3rem;
   font-weight: 600;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; }
 
 td {
   font-size: 2rem;
   font-weight: 600;
   font-family: "Times New Roman", Times, serif;
   height: 3rem;
-  width: auto;
-}
+  width: auto; }
+
 td input {
   height: 3rem;
   font-size: 1.5rem;
   font-weight: 400;
-  font-family: cursive;
-}
+  font-family: cursive; }
+
 button {
   height: 3rem;
   width: 10rem;
   border-radius: 1rem;
   font-weight: 700;
   cursor: pointer;
-  margin-right: 1rem;
-}
+  margin-right: 1rem; }
+
 button:hover {
   /* background-image: linear-gradient(45, aqua, pink); */
-  background-color: aqua;
-}
+  background-color: aqua; }

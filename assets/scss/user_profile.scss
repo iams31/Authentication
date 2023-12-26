@@ -1,33 +1,38 @@
 body {
-  background-color: lightblue; }
-
+  background-color: lightblue;
+}
 .profile-container {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
-  text-align: center; }
+  text-align: center;
+}
 
 h1 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 .profile-info {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 /* Additional styling for visual appeal */
 .profile-info p {
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+}
 
 strong {
-  font-weight: bold; }
-
+  font-weight: bold;
+}
 button {
   height: 3rem;
   width: 10rem;
   border-radius: 1rem;
   font-weight: 700;
   cursor: pointer;
-  margin-right: 1rem; }
-
+  margin-right: 1rem;
+}
 button:hover {
   /* background-image: linear-gradient(45, aqua, pink); */
-  background-color: aqua; }
+  background-color: aqua;
+}

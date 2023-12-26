@@ -9,6 +9,16 @@ const MongoStore = require("connect-mongo");
 //used for session cookie
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
+const sassMiddleware = require("node-sass-middleware");
+app.use(
+  sassMiddleware({
+    src: "./assets/scss",
+    dest: "./assets/css",
+    debug: true,
+    outputStyle: "extended",
+    prefix: "/css",
+  })
+);
 app.use(express.static("./assets"));
 app.use(express.urlencoded());
 app.use(cookieParser());
