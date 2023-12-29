@@ -6,7 +6,6 @@ body {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: end;
   justify-content: center;
   overflow: scroll;
   overflow-x: hidden; }

@@ -2,7 +2,6 @@ body {
   background-color: lightblue;
 }
 .profile-container {
-  border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
@@ -38,4 +37,32 @@ button:hover {
 }
 .profile-container {
   display: flex;
+  flex-direction: column;
+}
+#text-area {
+  width: 20rem;
+  height: 7rem;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+#dp {
+  height: 10rem;
+  width: 10rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+#name-pic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#new-post-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
