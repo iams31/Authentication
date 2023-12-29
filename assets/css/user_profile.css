@@ -31,3 +31,6 @@ button {
 button:hover {
   /* background-image: linear-gradient(45, aqua, pink); */
   background-color: aqua; }
+
+.profile-container {
+  display: flex; }

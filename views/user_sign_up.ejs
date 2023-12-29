@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/sign_up.css" />
 <form action="/users/create" method="post">
   <div id="top">
-    <div>
+    <div id="sign-up-form">
       <span id="heading">Sign Up</span>
 
       <table>
@@ -86,12 +86,13 @@
           </td>
         </tr>
       </table>
-    </div>
-    <div style="display: flex; flex-direction: row; justify-content: center">
-      <a href="sign-in" style="font-size: 1.5rem; font-weight: 600"
-        ><button type="button">Sign In</button></a
-      >
-      <button type="submit">Create Account</button>
+
+      <div id="buttons">
+        <a href="sign-in" style="font-size: 1.5rem; font-weight: 600"
+          ><button type="button">Sign In</button></a
+        >
+        <button type="submit">Create Account</button>
+      </div>
     </div>
   </div>
 </form>
