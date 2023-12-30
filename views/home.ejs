@@ -1,1 +1,16 @@
-<h1>Codeial / <%= title %></h1>
+<link rel="stylesheet" href="/scss/home.scss" />
+<h1>Baatein / <%= title %></h1>
+<div id="post-container">
+  <%for(post of posts){%>
+  <div class="post-card">
+    <div class="user-info">
+      <img
+        src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+        alt=" profile picture"
+      />
+      <span><%= post.user.firstname%> </span>
+    </div>
+    <div class="post-content"><%=post.content%></div>
+  </div>
+  <%}%>
+</div>

@@ -61,3 +61,35 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: center; }
+
+.post-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px; }
+
+.user-info {
+  display: flex;
+  align-items: center; }
+
+.user-info img {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin-right: 10px; }
+
+.post-content {
+  margin-top: 10px; }
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; }
+
+#post-container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+
+#post-container::-webkit-scrollbar {
+  display: none; }

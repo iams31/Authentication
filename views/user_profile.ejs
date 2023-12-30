@@ -1,32 +1,50 @@
 <link rel="stylesheet" href="/css/user_profile.css" />
-<div class="profile-container">
+<div style="display: flex; flex-direction: row">
   <div class="profile-container">
-    <div class="profile-info">
-      <div id="name-pic">
-        <img
-          id="dp"
-          src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-04.jpg"
-        />
-        <p
-          style="
-            font-size: 3rem;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 700;
-          "
-        >
-          <%= user.firstname+" "+user.lastname %>
+    <div class="profile-container">
+      <div class="profile-info">
+        <div id="name-pic">
+          <img
+            id="dp"
+            src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-04.jpg"
+          />
+          <p
+            style="
+              font-size: 3rem;
+              font-family: Arial, Helvetica, sans-serif;
+              font-weight: 700;
+            "
+          >
+            <%= user.firstname+" "+user.lastname %>
+          </p>
+        </div>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <p><strong>Phone:</strong> <%= user.phone %></p>
+        <p>
+          <strong>Date of Birth:</strong><%= user.dob.toLocaleDateString() %>
         </p>
       </div>
-      <p><strong>Email:</strong> <%= user.email %></p>
-      <p><strong>Phone:</strong> <%= user.phone %></p>
-      <p><strong>Date of Birth:</strong><%= user.dob.toLocaleDateString() %></p>
     </div>
+    <section id="feed-posts">
+      <form action="/posts/create" id="new-post-form" method="post">
+        <textarea name="content" id="text-area" cols="30" rows="5"></textarea>
+        <button type="submit">Post</button>
+      </form>
+    </section>
+    <a href="/users/sign-out"><button type="buton">Log Out</button></a>
   </div>
-  <section id="feed-posts">
-    <form action="/posts/create" id="new-post-form" method="post">
-      <textarea name="content" id="text-area" cols="30" rows="5"></textarea>
-      <button type="submit">Post</button>
-    </form>
-  </section>
-  <a href="/users/sign-out"><button type="buton">Log Out</button></a>
+  <div id="post-container">
+    <%for(post of posts){%>
+    <div class="post-card">
+      <div class="user-info">
+        <img
+          src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+          alt="<%= user.firstname %> <%= user.lastname%> profile picture"
+        />
+        <span><%= user.firstname %> <%=user.lastname%></span>
+      </div>
+      <div class="post-content"><%=post.content%></div>
+    </div>
+    <%}%>
+  </div>
 </div>

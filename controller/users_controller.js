@@ -1,10 +1,18 @@
 const User = require("../models/user");
+const Post = require("../models/posts");
 
 module.exports.profile = function (req, res) {
-  return res.render("user_profile", {
-    title: "User Profile",
-    user: req.user,
-  });
+  Post.find({})
+    .then((posts) => {
+      res.render("user_profile", {
+        title: "User Profile",
+        user: req.user,
+        posts,
+      });
+    })
+    .catch((err) => {
+      console.log("Error while finding the post to print");
+    });
 };
 //render the sign up page
 module.exports.signUp = function (req, res) {
