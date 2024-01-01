@@ -7,8 +7,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: scroll;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%; }
 
-body::-webkit-scrollbar {
+#header {
+  overflow: hidden; }
+
+#body {
+  overflow-y: scroll; }
+
+#body::-webkit-scrollbar {
   display: none; }

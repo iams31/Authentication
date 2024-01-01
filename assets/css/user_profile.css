@@ -1,5 +1,11 @@
-body {
-  background-color: lightblue; }
+#profile-page {
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+#profile-page::-webkit-scrollbar {
+  display: none; }
 
 .profile-container {
   padding: 20px;
@@ -64,8 +70,7 @@ button:hover {
 
 .post-card {
   border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 20px; }
+  padding: 15px; }
 
 .user-info {
   display: flex;
@@ -93,3 +98,26 @@ button:hover {
 
 #post-container::-webkit-scrollbar {
   display: none; }
+
+.post-and-comment {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  margin-bottom: 1rem; }
+  .post-and-comment .post-comment {
+    display: flex;
+    background-color: antiquewhite;
+    flex-direction: column; }
+    .post-and-comment .post-comment #post-content {
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      overflow: hidden; }
+
+form {
+  display: flex;
+  direction: row; }
+  form button {
+    height: 2rem;
+    width: 4rem; }

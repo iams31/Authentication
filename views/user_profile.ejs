@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/user_profile.css" />
-<div style="display: flex; flex-direction: row">
+<div id="profile-page">
   <div class="profile-container">
     <div class="profile-container">
       <div class="profile-info">
@@ -35,15 +35,28 @@
   </div>
   <div id="post-container">
     <%for(post of posts){%>
-    <div class="post-card">
-      <div class="user-info">
-        <img
-          src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
-          alt="<%= user.firstname %> <%= user.lastname%> profile picture"
-        />
-        <span><%= user.firstname %> <%=user.lastname%></span>
+    <div class="post-and-comment">
+      <div class="post-card">
+        <div class="user-info">
+          <img
+            src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+            alt="<%= user.firstname %> <%= user.lastname%> profile picture"
+          />
+          <span><%= user.firstname %> <%=user.lastname%></span>
+        </div>
+        <div class="post-content"><%=post.content%></div>
       </div>
-      <div class="post-content"><%=post.content%></div>
+      <form accept="/comments/create" method="post">
+        <textarea name="posts"> </textarea>
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="post-comment">
+        <div class="comment-form"></div>
+        <div id="post-content">
+          <span>This is dummy content</span>
+        </div>
+      </div>
     </div>
     <%}%>
   </div>
