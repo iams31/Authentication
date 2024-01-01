@@ -27,7 +27,13 @@
     </div>
     <section id="feed-posts">
       <form action="/posts/create" id="new-post-form" method="post">
-        <textarea name="content" id="text-area" cols="30" rows="5"></textarea>
+        <textarea
+          name="content"
+          id="text-area"
+          cols="30"
+          rows="5"
+          required
+        ></textarea>
         <button type="submit">Post</button>
       </form>
     </section>
@@ -46,17 +52,19 @@
         </div>
         <div class="post-content"><%=post.content%></div>
       </div>
-      <form accept="/comments/create" method="post">
-        <textarea name="posts"> </textarea>
-        <button type="submit">Submit</button>
+      <form id="comment-form" action="/comments/create" method="post">
+        <textarea name="content" cols="27" rows="3" required></textarea>
+        <input type="hidden" name="post" value="<%=post._id %>" />
+        <button type="submit">comment</button>
       </form>
-
+      <%for(comment of post.comments){%>
       <div class="post-comment">
         <div class="comment-form"></div>
         <div id="post-content">
-          <span>This is dummy content</span>
+          <span><%= comment.content%></span>
         </div>
       </div>
+      <%}%>
     </div>
     <%}%>
   </div>

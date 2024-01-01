@@ -1,6 +1,7 @@
 #profile-page {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   overflow-y: scroll;
   overflow-x: hidden; }
 
@@ -103,7 +104,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  width: 20rem; }
   .post-and-comment .post-comment {
     display: flex;
     background-color: antiquewhite;
@@ -113,11 +115,19 @@ button:hover {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      overflow: hidden; }
+      height: auto;
+      padding: 0.5rem;
+      overflow-y: scroll; }
+    .post-and-comment .post-comment #post-content::-webkit-scrollbar {
+      display: none; }
 
 form {
   display: flex;
-  direction: row; }
+  justify-content: space-evenly; }
   form button {
     height: 2rem;
     width: 4rem; }
+
+#comment-form button {
+  height: 2rem;
+  width: auto; }
