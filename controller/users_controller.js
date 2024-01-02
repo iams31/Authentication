@@ -3,6 +3,14 @@ const Post = require("../models/posts");
 
 module.exports.profile = function (req, res) {
   Post.find({})
+    .populate("user")
+    .populate({
+      path: "comments",
+      populate: {
+        // Add a comma here ->
+        path: "user",
+      },
+    })
     .then((posts) => {
       res.render("user_profile", {
         title: "User Profile",

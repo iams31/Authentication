@@ -60,8 +60,15 @@
       <%for(comment of post.comments){%>
       <div class="post-comment">
         <div class="comment-form"></div>
-        <div id="post-content">
-          <span><%= comment.content%></span>
+        <div id="comment-card">
+          <span id="comment-name">
+            <img
+              src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+              alt="<%= user.firstname %> <%= user.lastname%> "
+            />
+            <%=comment.user.firstname%> <%=comment.user.lastname%>
+          </span>
+          <span id="comment-content"><%= comment.content%></span>
         </div>
       </div>
       <%}%>

@@ -126,7 +126,7 @@ button:hover {
     display: flex;
     background-color: antiquewhite;
     flex-direction: column;
-    #post-content {
+    #comment-card {
       font-size: 1rem;
       display: flex;
       flex-direction: column;
@@ -134,8 +134,29 @@ button:hover {
       height: auto;
       padding: 0.5rem;
       overflow-y: scroll;
+      #comment-name {
+        display: flex;
+        align-items: center;
+        height: 2rem;
+        font-size: 1.5rem;
+        padding-left: 5px;
+        background-color: rgb(156, 233, 234);
+        img {
+          height: 2rem;
+          width: 2rem;
+          border-radius: 50%;
+          margin-right: 6px;
+          margin-right: 5px;
+        }
+      }
+      #comment-content {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 5px;
+        margin-top: 5px;
+      }
     }
-    #post-content::-webkit-scrollbar {
+    #comment-card::-webkit-scrollbar {
       display: none;
     }
   }
