@@ -3,7 +3,8 @@
   flex-direction: row;
   justify-content: space-evenly;
   overflow-y: scroll;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 85%; }
 
 #profile-page::-webkit-scrollbar {
   display: none; }
@@ -135,7 +136,9 @@ button:hover {
         display: flex;
         flex-wrap: wrap;
         margin-left: 5px;
-        margin-top: 5px; }
+        margin-top: 5px;
+        font-size: 1.2rem;
+        font-family: sans-serif; }
     .post-and-comment .post-comment #comment-card::-webkit-scrollbar {
       display: none; }
 

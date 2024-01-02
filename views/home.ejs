@@ -1,16 +1,52 @@
 <link rel="stylesheet" href="/scss/home.scss" />
-<h1>Baatein / <%= title %></h1>
-<div id="post-container">
-  <%for(post of posts){%>
-  <div class="post-card">
-    <div class="user-info">
-      <img
-        src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
-        alt=" profile picture"
-      />
-      <span><%= post.user.firstname%> </span>
-    </div>
-    <div class="post-content"><%=post.content%></div>
+<div id="home-body">
+  <div>
+    <h1>Baatein <%= title %></h1>
+    <form action="/posts/create" id="new-post-form" method="post">
+      <textarea
+        name="content"
+        id="text-area"
+        cols="30"
+        rows="5"
+        required
+      ></textarea>
+      <button type="submit">Post</button>
+    </form>
   </div>
-  <%}%>
+  <div id="post-container">
+    <%for(post of posts){%>
+    <div class="post-and-comment">
+      <div class="post-card">
+        <div class="user-info">
+          <img
+            src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+            alt="<%= post.user.firstname %> <%= post.user.lastname%>"
+          />
+          <span><%= post.user.firstname %> <%=post.user.lastname%></span>
+        </div>
+        <div class="post-content"><%=post.content%></div>
+      </div>
+      <form id="comment-form" action="/comments/create" method="post">
+        <textarea name="content" cols="27" rows="3" required></textarea>
+        <input type="hidden" name="post" value="<%=post._id %>" />
+        <button type="submit">comment</button>
+      </form>
+      <%for(comment of post.comments){%>
+      <div class="post-comment">
+        <div class="comment-form"></div>
+        <div id="comment-card">
+          <span id="comment-name">
+            <img
+              src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+              alt="<%= comment.user.firstname %> <%= comment.user.lastname%> "
+            />
+            <%=comment.user.firstname%> <%=comment.user.lastname%>
+          </span>
+          <span id="comment-content"><%= comment.content%></span>
+        </div>
+      </div>
+      <%}%>
+    </div>
+    <%}%>
+  </div>
 </div>
