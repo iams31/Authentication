@@ -17,14 +17,25 @@ module.exports.destroy = (req, res) => {
     .then((post) => {
       if (post) {
         if (post.user == req.user.id) {
-          //.id is used to convert the object to string this is default functionality that mongoose provide us
-          post.remove();
-          Comment.deleteMany({ post: req.params.id }).catch((err) => {
-            res.redirect("back");
-          });
+          post
+            .deleteOne()
+            .then(() => {
+              Comment.deleteMany({ post: post._id })
+                .then(() => {
+                  res.redirect("back");
+                })
+                .catch((err) => {
+                  res.status(500).send("Error deleting comments");
+                });
+            })
+            .catch((err) => {
+              res.status(500).send("Error deleting post");
+            });
+        } else {
+          res.redirect("back");
         }
       } else {
-        res.redirect("back");
+        res.status(404).send("Post not found");
       }
     })
     .catch((err) => {
