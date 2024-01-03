@@ -97,50 +97,88 @@ button:hover {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll; }
-
-#post-container::-webkit-scrollbar {
-  display: none; }
-
-.post-and-comment {
-  display: flex;
-  flex-direction: column;
-  background-color: whitesmoke;
-  margin-bottom: 1rem;
-  width: 20rem; }
-  .post-and-comment .post-comment {
+  #post-container .post-and-comment {
     display: flex;
-    background-color: antiquewhite;
-    flex-direction: column; }
-    .post-and-comment .post-comment #comment-card {
-      font-size: 1rem;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      height: auto;
-      padding: 0.5rem;
-      overflow-y: scroll; }
-      .post-and-comment .post-comment #comment-card #comment-name {
+    flex-direction: column;
+    background-color: whitesmoke;
+    margin-bottom: 1rem;
+    width: 30rem; }
+    #post-container .post-and-comment .post-card {
+      border: 1px solid #ddd;
+      padding: 10px; }
+      #post-container .post-and-comment .post-card .user-info {
         display: flex;
         align-items: center;
-        height: 2rem;
-        font-size: 1.5rem;
-        padding-left: 5px;
-        background-color: #9ce9ea; }
-        .post-and-comment .post-comment #comment-card #comment-name img {
+        justify-content: space-between; }
+        #post-container .post-and-comment .post-card .user-info img {
           height: 2rem;
           width: 2rem;
           border-radius: 50%;
-          margin-right: 6px;
-          margin-right: 5px; }
-      .post-and-comment .post-comment #comment-card #comment-content {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: 5px;
-        margin-top: 5px;
+          margin-right: 10px; }
+        #post-container .post-and-comment .post-card .user-info span {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          font-size: 1.2rem; }
+        #post-container .post-and-comment .post-card .user-info #delete-icon img {
+          height: 2rem;
+          width: 2rem;
+          margin-right: 0.5rem;
+          border-radius: 40%; }
+      #post-container .post-and-comment .post-card .post-content {
+        margin-top: 10px;
         font-size: 1.2rem;
-        font-family: sans-serif; }
-    .post-and-comment .post-comment #comment-card::-webkit-scrollbar {
-      display: none; }
+        font-family: Verdana, Geneva, Tahoma, sans-serif; }
+    #post-container .post-and-comment #comment-form {
+      display: flex;
+      align-items: center;
+      justify-content: space-around; }
+      #post-container .post-and-comment #comment-form textarea {
+        width: 22rem;
+        height: 4rem; }
+      #post-container .post-and-comment #comment-form button {
+        font-size: 1.1rem;
+        height: 1.5rem;
+        border-radius: 0.5rem;
+        align-items: center; }
+      #post-container .post-and-comment #comment-form button:hover {
+        background-color: azure;
+        border: 1px solid black; }
+    #post-container .post-and-comment .post-comment {
+      display: flex;
+      background-color: antiquewhite;
+      flex-direction: column; }
+      #post-container .post-and-comment .post-comment #comment-card {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.5rem;
+        overflow-y: scroll; }
+        #post-container .post-and-comment .post-comment #comment-card #comment-name {
+          display: flex;
+          align-items: center;
+          height: 2rem;
+          font-size: 1.5rem;
+          padding-left: 5px;
+          background-color: #9ce9ea; }
+          #post-container .post-and-comment .post-comment #comment-card #comment-name img {
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            margin-right: 6px;
+            margin-right: 5px; }
+        #post-container .post-and-comment .post-comment #comment-card #comment-content {
+          display: flex;
+          flex-wrap: wrap;
+          margin-left: 5px;
+          margin-top: 5px;
+          font-size: 1.2rem;
+          font-family: sans-serif; }
+      #post-container .post-and-comment .post-comment #comment-card::-webkit-scrollbar {
+        display: none; }
+
+#post-container::-webkit-scrollbar {
+  display: none; }
 
 form {
   display: flex;

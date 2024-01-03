@@ -22,11 +22,20 @@
     <div class="post-and-comment">
       <div class="post-card">
         <div class="user-info">
-          <img
-            src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
-            alt="<%= post.user.firstname %> <%= post.user.lastname%>"
-          />
-          <span><%= post.user.firstname %> <%=post.user.lastname%></span>
+          <div style="display: flex; align-items: center">
+            <img
+              src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+              alt="<%= post.user.firstname %> <%= post.user.lastname%>"
+            />
+            <span><%= post.user.firstname %> <%=post.user.lastname%></span>
+          </div>
+          <div id="delete-icon">
+            <a href="/posts//destroy/post.id"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/128/3405/3405244.png"
+                alt="deletepost"
+            /></a>
+          </div>
         </div>
         <div class="post-content"><%=post.content%></div>
       </div>

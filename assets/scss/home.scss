@@ -52,6 +52,7 @@
         .user-info {
           display: flex;
           align-items: center;
+          justify-content: space-between;
           img {
             height: 2rem;
             width: 2rem;
@@ -63,6 +64,14 @@
               "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
               "Helvetica Neue", sans-serif;
             font-size: 1.2rem;
+          }
+          #delete-icon {
+            img {
+              height: 2rem;
+              width: 2rem;
+              margin-right: 0.5rem;
+              border-radius: 40%;
+            }
           }
         }
         .post-content {
