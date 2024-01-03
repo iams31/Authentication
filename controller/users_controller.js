@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Post = require("../models/posts");
+const passport = require("passport");
 
 module.exports.profile = function (req, res) {
   Post.find({})

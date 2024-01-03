@@ -2,6 +2,7 @@
 <div id="home-body">
   <div>
     <h1>Baatein <%= title %></h1>
+    <% if(locals.user){%>
     <form action="/posts/create" id="new-post-form" method="post">
       <textarea
         name="content"
@@ -12,6 +13,9 @@
       ></textarea>
       <button type="submit">Post</button>
     </form>
+    <% } else { %>
+    <H2>Please log in to create a post.</H2>
+    <% } %>
   </div>
   <div id="post-container">
     <%for(post of posts){%>

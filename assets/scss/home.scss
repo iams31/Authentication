@@ -45,7 +45,7 @@
       flex-direction: column;
       background-color: whitesmoke;
       margin-bottom: 1rem;
-      width: 20rem;
+      width: 30rem;
       .post-card {
         border: 1px solid #ddd;
         padding: 10px;
@@ -68,7 +68,7 @@
         .post-content {
           margin-top: 10px;
           font-size: 1.2rem;
-          font-family: fantasy;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
       }
       #comment-form {
@@ -76,6 +76,7 @@
         align-items: center;
         justify-content: space-around;
         textarea {
+          width: 22rem;
           height: 4rem;
         }
         button {
