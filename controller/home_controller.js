@@ -1,4 +1,5 @@
 const Post = require("../models/posts");
+const User = require("../models/user");
 module.exports.home = function (req, res) {
   // console.log(req.cookie);
   //populate the user of each post
@@ -12,9 +13,12 @@ module.exports.home = function (req, res) {
       },
     })
     .then((posts) => {
-      res.render("home", {
-        title: "Home",
-        posts,
+      User.find({}).then((users) => {
+        res.render("home", {
+          title: "Home",
+          posts,
+          all_user: users,
+        });
       });
     })
     .catch((error) =>
