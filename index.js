@@ -54,6 +54,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 app.use("/", require("./routes"));
+app.use((req, res, next) => {
+  const routeName = extractRouteName(req.path); // Implement your logic to extract the route name
+  res.locals.routeName = routeName;
+  console.log(routeName);
+  next();
+});
 app.listen(port, function (err) {
   if (err) {
     console.log(`Error in running the server: ${err}`);

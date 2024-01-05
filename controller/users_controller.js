@@ -13,11 +13,21 @@ module.exports.profile = function (req, res) {
       },
     })
     .then((posts) => {
-      res.render("user_profile", {
-        title: "User Profile",
-        user: req.user,
-        posts,
-      });
+      User.findById(req.params.id)
+        .then((users) => {
+          res.render("user_profile", {
+            title: "User Profile",
+            user: req.user,
+            posts,
+            curr_user: users,
+          });
+        })
+        .catch((err) => {
+          console.error(
+            "Error while fiding current user for rendering profile",
+            err
+          );
+        });
     })
     .catch((err) => {
       console.log("Error while finding the post to print");
@@ -72,7 +82,7 @@ module.exports.create = function (req, res) {
   }
 };
 module.exports.createSession = function (req, res) {
-  return res.redirect("/users/profile");
+  return res.redirect("/");
 };
 module.exports.distroySession = (req, res) => {
   req.logout(function (err) {

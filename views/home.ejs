@@ -20,7 +20,7 @@
   <div id="post-container">
     <%for(post of posts){%>
     <div class="post-and-comment">
-      <%-include('_posts');%> <% if(locals.user){%>
+      <%-include('_posts')%> <% if(locals.user){%>
       <div class="comment-form">
         <form id="comment-form" action="/comments/create" method="post">
           <textarea name="content" cols="27" rows="3" required></textarea>
@@ -32,4 +32,5 @@
     </div>
     <%}%>
   </div>
+  <% if(locals.user){%> <%-include('_friends');%> <%}%>
 </div>

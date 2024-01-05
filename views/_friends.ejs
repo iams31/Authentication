@@ -1,0 +1,20 @@
+<section id="friends">
+  <%for(user of all_users){%>
+  <div style="display: flex; background-color: #f8f8f8; margin: 1rem">
+    <a href="/users/profile/<%=user.id%>">
+      <div id="user">
+        <img
+          src="https://img.nowrunning.com/content/Artist/SunnyLeone/stills/sunnyleone-stills-02.jpg"
+        />
+        <%=user.firstname%> <%=user.lastname%>
+      </div>
+    </a>
+    <div style="display: flex; align-items: flex-start">
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/4202/4202259.png"
+        style="width: 2rem; height: 2rem"
+      />
+    </div>
+  </div>
+  <%}%>
+</section>

@@ -153,6 +153,27 @@
   #post-container::-webkit-scrollbar {
     display: none;
   }
+  #friends {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    background-image: linear-gradient(13deg, #a6d7d7, #e4a0a0, orange);
+    a {
+      margin-bottom: 1rem;
+      text-decoration: none;
+      #user {
+        display: flex;
+        align-items: center;
+        height: 5rem;
+        font-size: 2rem;
+      }
+      img {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+      }
+    }
+  }
 }
 #home-body::-webkit-scrollbar {
   display: none;

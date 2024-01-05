@@ -5,7 +5,7 @@
   </div>
   <% if(locals.user){%>
   <span id="image_user">
-    <a href="/users/profile">
+    <a href="/users/profile/<%=locals.user.id%>">
       <img
         src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png"
         alt="user"

@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="/css/user_profile.css" />
 <div id="profile-page">
   <div class="profile-container">
-    <div class="profile-container">
+    <div
+      class="profile-container"
+      style="background-image: linear-gradient(30deg, pink, white)"
+    >
       <div class="profile-info">
         <div id="name-pic">
           <img
@@ -15,16 +18,18 @@
               font-weight: 700;
             "
           >
-            <%= user.firstname+" "+user.lastname %>
+            <%= curr_user.firstname+" "+curr_user.lastname %>
           </p>
         </div>
-        <p><strong>Email:</strong> <%= user.email %></p>
-        <p><strong>Phone:</strong> <%= user.phone %></p>
+        <p><strong>Email:</strong> <%= curr_user.email %></p>
+        <p><strong>Phone:</strong> <%= curr_user.phone %></p>
         <p>
-          <strong>Date of Birth:</strong><%= user.dob.toLocaleDateString() %>
+          <strong>Date of Birth:</strong><%= curr_user.dob.toLocaleDateString()
+          %>
         </p>
       </div>
     </div>
+    <%if(locals.user.id==curr_user.id){%>
     <section id="feed-posts">
       <form action="/posts/create" id="new-post-form" method="post">
         <textarea
@@ -37,6 +42,7 @@
         <button type="submit">Post</button>
       </form>
     </section>
+    <%}%>
   </div>
   <div id="post-container">
     <%for(post of posts){%>
