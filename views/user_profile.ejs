@@ -29,7 +29,7 @@
         </p>
       </div>
     </div>
-    <%if(locals.user.id==curr_user.id){%>
+    <%if(user.id==curr_user.id){%>
     <section id="feed-posts">
       <form action="/posts/create" id="new-post-form" method="post">
         <textarea
@@ -42,6 +42,86 @@
         <button type="submit">Post</button>
       </form>
     </section>
+    <div>
+      <form action="/users/update/<%=user.id%>" method="post">
+        <div id="sign-up-form">
+          <span id="heading">Update Form</span>
+
+          <table>
+            <tr>
+              <td>First Name</td>
+              <td>
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="Your First Name"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Your Last Name"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Adress"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter Your Phone Number"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Date of Birth</td>
+              <td>
+                <input
+                  type="text"
+                  name="dob"
+                  placeholder="DD/MM/YYYY"
+                  onfocus="this.type='date'"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter Password"
+                  required
+                />
+              </td>
+            </tr>
+          </table>
+          <div id="buttons">
+            <button type="submit">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <%}%>
   </div>
   <div id="post-container">

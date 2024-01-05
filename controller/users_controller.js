@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const Post = require("../models/posts");
 const passport = require("passport");
+const { model } = require("mongoose");
 
 module.exports.profile = function (req, res) {
   Post.find({})
@@ -92,4 +93,34 @@ module.exports.distroySession = (req, res) => {
       return res.redirect("/users/sign-in");
     }
   });
+};
+module.exports.updateUser = (req, res) => {
+  User.findById(req.params.id)
+    .then((user) => {
+      if (user.password == req.body.password) {
+        User.updateOne(
+          { _id: req.params.id },
+          {
+            $set: {
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
+              email: req.body.email,
+              phone: req.body.phone,
+              dob: req.body.dob,
+            },
+          }
+        )
+          .then((result) => {
+            res.redirect("/");
+          })
+          .catch((error) => {
+            console.log("Error while updating the user");
+          });
+      } else {
+        res.redirect("/");
+      }
+    })
+    .catch(() => {
+      console.log("Error while finding the user for updating the user");
+    });
 };

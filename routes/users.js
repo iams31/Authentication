@@ -20,4 +20,5 @@ router.post(
   usersConrtoller.createSession
 );
 router.get("/sign-out", usersConrtoller.distroySession);
+router.post("/update/:id", usersConrtoller.updateUser);
 module.exports = router;
