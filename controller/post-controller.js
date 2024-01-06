@@ -6,10 +6,11 @@ module.exports.create = async (req, res) => {
       content: req.body.content,
       user: req.user._id,
     });
+    req.flash("success", "Post created Successfully!");
     return res.redirect("back");
   } catch {
-    console.log("Error in creating user");
-    return res.redirect(500).send("Please create post again");
+    req.flash("error", "Error in creating post!!");
+    return res.redirect("back");
   }
 };
 
@@ -20,14 +21,16 @@ module.exports.destroy = async (req, res) => {
       if (post.user == req.user.id) {
         await post.deleteOne();
         await Comment.deleteMany({ post: post._id });
+        req.flash("success", "Post Deleted Successfully!");
       } else {
-        console.log("Login in from your account");
+        req.flash("error", "Login First!!");
       }
     } else {
-      console.log("Post not found in database");
+      req.flash("error", "Post not found in database!");
     }
     return res.redirect("back");
   } catch {
-    console.log("Error while deleting the post");
+    req.flash("error", err);
+    return res.redirect("back");
   }
 };
