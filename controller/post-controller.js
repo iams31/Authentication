@@ -1,44 +1,33 @@
 const Post = require("../models/posts");
 const Comment = require("../models/comment");
-module.exports.create = (req, res) => {
-  Post.create({
-    content: req.body.content,
-    user: req.user._id,
-  })
-    .then((result) => res.redirect("back"))
-    .catch((err) => {
-      console.log("Error while creating a user");
-      res.redirect("back");
+module.exports.create = async (req, res) => {
+  try {
+    await Post.create({
+      content: req.body.content,
+      user: req.user._id,
     });
+    return res.redirect("back");
+  } catch {
+    console.log("Error in creating user");
+    return res.redirect(500).send("Please create post again");
+  }
 };
 
-module.exports.destroy = (req, res) => {
-  Post.findById(req.params.id)
-    .then((post) => {
-      if (post) {
-        if (post.user == req.user.id) {
-          post
-            .deleteOne()
-            .then(() => {
-              Comment.deleteMany({ post: post._id })
-                .then(() => {
-                  res.redirect("back");
-                })
-                .catch((err) => {
-                  res.status(500).send("Error deleting comments");
-                });
-            })
-            .catch((err) => {
-              res.status(500).send("Error deleting post");
-            });
-        } else {
-          res.redirect("back");
-        }
+module.exports.destroy = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (post) {
+      if (post.user == req.user.id) {
+        await post.deleteOne();
+        await Comment.deleteMany({ post: post._id });
       } else {
-        res.status(404).send("Post not found");
+        console.log("Login in from your account");
       }
-    })
-    .catch((err) => {
-      console.log("Error while finding the post in deleting the post");
-    });
+    } else {
+      console.log("Post not found in database");
+    }
+    return res.redirect("back");
+  } catch {
+    console.log("Error while deleting the post");
+  }
 };

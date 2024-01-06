@@ -1,57 +1,35 @@
 const Comment = require("../models/comment");
 const Post = require("../models/posts");
-module.exports.create = (req, res) => {
-  Post.findById(req.body.post)
-    .then((post) => {
-      if (post) {
-        Comment.create({
-          content: req.body.content,
-          post: req.body.post,
-          user: req.user._id,
-        })
-          .then((result) => {
-            post.comments.push(result);
-            post.save();
-            res.redirect("back");
-          })
-          .catch((err) => {
-            console.log("Error while creating a comment");
-            res.redirect("back");
-          });
-      } else {
-        res.redirect("/users/sign-up");
-      }
-    })
-    .catch((err) => {
-      console.log("Error in finding the user");
-      res.redirect("back");
-    });
+module.exports.create = async (req, res) => {
+  try {
+    const post = await Post.findById(req.body.post);
+    if (post) {
+      const comment = await Comment.create({
+        content: req.body.content,
+        post: req.body.post,
+        user: req.user._id,
+      });
+      post.comments.push(comment);
+      post.save();
+    } else {
+      console.log("Post not found", req.body.post);
+    }
+    return res.redirect("back");
+  } catch {
+    console.log("Error in finding the creating a post");
+    res.redirect("back");
+  }
 };
-module.exports.destroy = (req, res) => {
-  Comment.findById(req.params.id)
-    .then((comment) => {
-      if (comment.user == req.user.id) {
-        let postId = comment.post;
-        comment
-          .deleteOne()
-          .then(() => {
-            return Post.findByIdAndUpdate(postId, {
-              $pull: { comments: req.params.id },
-            });
-          })
-          .then(() => {
-            res.redirect("back");
-          })
-          .catch((err) => {
-            res
-              .status(500)
-              .send("Error deleting comment and updating post: " + err.message);
-          });
-      } else {
-        res.redirect("/users/sign-in");
-      }
-    })
-    .catch(() => {
-      res.redirect(500).send("Error while sending comment");
+module.exports.destroy = async (req, res) => {
+  try {
+    const comment = await Comment.findById(req.params.id);
+    const postId = comment.post;
+    await comment.deleteOne();
+    await Post.findByIdAndUpdate(postId, {
+      $pull: { comments: req.params.id },
     });
+    return res.redirect("back");
+  } catch {
+    res.redirect(500).send("Error while sending comment");
+  }
 };
