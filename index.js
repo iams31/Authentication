@@ -10,6 +10,8 @@ const MongoStore = require("connect-mongo");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const sassMiddleware = require("node-sass-middleware");
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
 app.use(
   sassMiddleware({
     src: "./assets/scss",
@@ -53,6 +55,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+//just after session middleware we need to connect the flash message middleware
+app.use(flash());
+app.use(customMware.setFlash);
 app.use("/", require("./routes"));
 // app.use((req, res, next) => {
 //   const routeName = extractRouteName(req.path); // Implement your logic to extract the route name
