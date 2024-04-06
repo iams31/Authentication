@@ -1,5 +1,6 @@
 const Post = require("../models/posts");
 const Comment = require("../models/comment");
+const User = require("../models/user");
 module.exports.create = async (req, res) => {
   try {
     let post = await Post.create({
@@ -29,6 +30,14 @@ module.exports.destroy = async (req, res) => {
       if (post.user == req.user.id) {
         await post.deleteOne();
         await Comment.deleteMany({ post: post._id });
+        if (req.xhr) {
+          return res.status(200).json({
+            data: {
+              post_id: req.params.id,
+            },
+            message: "Post deleted",
+          });
+        }
         req.flash("success", "Post Deleted Successfully!");
       } else {
         req.flash("error", "Login First!!");

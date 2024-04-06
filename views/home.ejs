@@ -19,7 +19,7 @@
   </div>
   <div id="post-container">
     <%for(post of posts){%>
-    <div class="post-and-comment">
+    <div class="post-and-comment" id="post-and-comment-<%=post.id%>">
       <%-include('_posts')%> <% if(locals.user){%>
       <div class="comment-form">
         <form id="comment-form" action="/comments/create" method="post">
