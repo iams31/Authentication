@@ -1,4 +1,4 @@
-<div class="post-comment">
+<div id="post-comment-<%=comment.id%>" class="post-comment">
   <div id="comment-card">
     <span id="comment-name">
       <div style="display: flex; align-items: center">
@@ -8,9 +8,11 @@
         />
         <%=comment.user.firstname%> <%=comment.user.lastname%>
       </div>
-      <div>
+      <div class="del-cmnt-btn">
         <% if((locals.user) && (locals.user.id==comment.user.id)){%>
-        <a href="/comments/destroy/<%=comment.id%>"
+        <a
+          id="del-cmnt-btn-<%=comment.id%>"
+          href="/comments/destroy/<%=comment.id%>"
           ><img
             src="https://cdn-icons-png.flaticon.com/128/3405/3405244.png"
             alt="deletepost"

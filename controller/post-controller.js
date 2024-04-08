@@ -1,6 +1,5 @@
 const Post = require("../models/posts");
 const Comment = require("../models/comment");
-const User = require("../models/user");
 module.exports.create = async (req, res) => {
   try {
     let post = await Post.create({
@@ -12,7 +11,7 @@ module.exports.create = async (req, res) => {
         data: {
           post: post,
         },
-        message: "Post created",
+        message: "Post created Successfully!",
       });
     }
     req.flash("success", "Post created Successfully!");
@@ -35,7 +34,7 @@ module.exports.destroy = async (req, res) => {
             data: {
               post_id: req.params.id,
             },
-            message: "Post deleted",
+            message: "Post Deleted Successfully!",
           });
         }
         req.flash("success", "Post Deleted Successfully!");

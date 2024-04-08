@@ -28,7 +28,11 @@
           <button type="submit">comment</button>
         </form>
       </div>
-      <%}%> <%for(comment of post.comments){%> <%-include('_comments');%> <%}%>
+      <%}%>
+      <span class="cmnt-bx"
+        ><%for(comment of post.comments){%> <%-include('_comments');%>
+        <%}%></span
+      >
     </div>
     <%}%>
   </div>

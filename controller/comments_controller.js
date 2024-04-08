@@ -11,6 +11,15 @@ module.exports.create = async (req, res) => {
       });
       post.comments.push(comment);
       post.save();
+      if (req.xhr) {
+        return res.status(200).json({
+          data: {
+            comment: comment,
+            post_id: post._id,
+          },
+          message: "You have commented on post!",
+        });
+      }
     } else {
       req.flash("error", "Post not found");
     }
@@ -28,6 +37,14 @@ module.exports.destroy = async (req, res) => {
     await Post.findByIdAndUpdate(postId, {
       $pull: { comments: req.params.id },
     });
+    if (req.xhr) {
+      return res.status(200).json({
+        data: {
+          comment_id: req.params.id,
+        },
+        message: "Comment Deleted Successfully!",
+      });
+    }
     req.flash("success", "Comment deleted Successfully!");
     return res.redirect("back");
   } catch {
